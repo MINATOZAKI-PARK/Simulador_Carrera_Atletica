@@ -23,7 +23,11 @@ public class Runner {
     }
 
     public static void main(String[] args) {
+        Runner runner1 = new Runner("Juan");
+        Runner runner2 = new Runner("Maria");
 
+        System.out.println("Corredor "+runner1.getName()+" tiene una velocidad de "+runner1.getSeep());
+        System.out.println("Corredor "+runner2.getName()+" tiene una velocidad de "+runner2.getSeep());
     }
 }
 
