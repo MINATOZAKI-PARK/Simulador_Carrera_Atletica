@@ -14,13 +14,11 @@ public class Runner {
         this.speed = rand.nextInt(30)+1;
     }
 
-    public String getName(){
-        return this.name;
-    }
+    public String getName(){return this.name;}
 
-    public int getSeep(){
-        return this.speed;
-    }
+    public int getSeep(){return this.speed;}
+
+    public String toString(){return this.name;}
 
     public static void main(String[] args) {
         Runner runner1 = new Runner("Juan");
