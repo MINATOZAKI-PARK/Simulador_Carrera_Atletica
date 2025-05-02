@@ -161,6 +161,24 @@ public class AthleticRaceInterface{
         controlCarrera.add(topPanel, BorderLayout.NORTH);
         controlCarrera.add(scroll2, BorderLayout.CENTER);
 
+
+        ActionListener start = e ->{
+            for (Runner kD: corredores){
+                Thread once = new Thread(new ThreadRunner(kD, tableroRunners));
+                once.start();
+            }
+        };
+
+
+
+
+
+        initButton.addActionListener(start);
+        // boton de reiniciar
+        rebootButton.addActionListener(e -> tableroRunners.setText(""));
+        // cierre de ventana (pero con exprecion lambda)
+        finishButton.addActionListener(e -> System.exit(0));
+
         // Agregar todos los paneles al frame principal
         frame.add(registroPanel, BorderLayout.NORTH);
         frame.add(corredoresPanel, BorderLayout.CENTER);
