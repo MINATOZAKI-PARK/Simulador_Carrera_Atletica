@@ -18,14 +18,8 @@ public class Runner {
 
     public int getSeep(){return this.speed;}
 
-    public String toString(){return this.name;}
-
-    public static void main(String[] args) {
-        Runner runner1 = new Runner("Juan");
-        Runner runner2 = new Runner("Maria");
-
-        System.out.println("Corredor "+runner1.getName()+" tiene una velocidad de "+runner1.getSeep());
-        System.out.println("Corredor "+runner2.getName()+" tiene una velocidad de "+runner2.getSeep());
+    public String toString(){
+        return "Corredor: "+this.name+" con velocidad "+this.speed+" km/h";
     }
 }
 
