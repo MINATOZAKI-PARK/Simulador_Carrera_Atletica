@@ -16,10 +16,10 @@ public class Runner {
 
     public String getName(){return this.name;}
 
-    public int getSeep(){return this.speed;}
+    public int getSpeed(){return this.speed;}
 
     public String toString(){
-        return "Corredor: "+this.name+" con velocidad "+this.speed+" km/h";
+        return this.name+" - Tiempo: "+this.speed+" segundos";
     }
 }
 
