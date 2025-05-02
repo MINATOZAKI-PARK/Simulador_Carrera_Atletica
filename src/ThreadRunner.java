@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.SwingUtilities;
 
 public class ThreadRunner implements Runnable {
-    private static final AtomicInteger COUNTER = new AtomicInteger(1);
+    private static final AtomicInteger COUNTER = new AtomicInteger(0);
     //Atributos del hilo
     private Runner runner;
     private JTextArea tablero;
