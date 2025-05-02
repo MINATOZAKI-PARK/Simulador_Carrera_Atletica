@@ -1,14 +1,19 @@
-import javax.swing.*;
+import javax.swing.JTextArea;
+import java.util.concurrent.atomic.AtomicInteger;
+import javax.swing.SwingUtilities;
 
 public class ThreadRunner implements Runnable {
+    private static final AtomicInteger COUNTER = new AtomicInteger(1);
     //Atributos del hilo
     private Runner runner;
     private JTextArea tablero;
+
 
     //Constructor del hilo que recibe el corredor y area de texto
     public ThreadRunner(Runner runner, JTextArea tablero) {
         this.runner = runner;
         this.tablero = tablero;
+
     }
 
     //Método que se ejecuta al iniciar el hilo
@@ -19,8 +24,10 @@ public class ThreadRunner implements Runnable {
             //Pone el hilo a dormir por el tiempo calculado
             Thread.sleep(seg);
 
+            int lugar = COUNTER.getAndIncrement();
             //Añade el resultado del corredor al area de texto
-            tablero.append(runner.toString() + "\n");
+            SwingUtilities.invokeLater(()->tablero.append(COUNTER + "- "+runner.toString() + "\n"));
+
 
         } catch (InterruptedException s) {
             //Manejo de interrupción del hilo
