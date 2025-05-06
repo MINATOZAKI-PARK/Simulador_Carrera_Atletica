@@ -9,7 +9,30 @@ public class AthleticRaceInterface{
     // Lista para almacenar los corredores participantes
     public static final int MAX = 5;
     public static final List<Runner> corredores = new ArrayList<>(MAX);
-    
+
+    public static JLabel label(String etiqueta){
+        JLabel jlabel = new JLabel(etiqueta);
+        jlabel.setFont(new Font("Arial", Font.BOLD, 16));
+        jlabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        return jlabel;
+    }
+
+    public static JButton button(String etiqueta){
+        JButton button = new JButton(etiqueta);
+        button.setFont(new Font("Arial", Font.PLAIN, 14));
+        button.setAlignmentX(Component.LEFT_ALIGNMENT);
+        return button;
+    }
+
+    public static JTextArea textArea(){
+        JTextArea textArea = new JTextArea(10, 30);
+        textArea.setEditable(false);
+        textArea.setFont(new Font("Arial", Font.PLAIN, 14));
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        return textArea;
+    }
+
     public static void main(String[] args) {
         // Crear y configurar la ventana principal
         JFrame frame = new JFrame("Carrera Atlética - TAP-R5-U3");
@@ -24,9 +47,7 @@ public class AthleticRaceInterface{
         registroPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Título del panel de registro
-        JLabel registroCorredoresLabel = new JLabel("Registro de corredores");
-        registroCorredoresLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        registroCorredoresLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel registroCorredoresLabel = label("Registro de corredores");
 
         // Panel para campo de texto y botón de registro
         JPanel inputButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -37,8 +58,7 @@ public class AthleticRaceInterface{
         runnerNameField.setFont(new Font("Arial", Font.PLAIN, 14));
 
         // Configuración del botón de registro
-        JButton registerButton = new JButton("Añadir");
-        registerButton.setFont(new Font("Arial", Font.PLAIN, 14));
+        JButton registerButton = button("Agregar");
 
         // Agregar componentes al panel de entrada
         inputButtonPanel.add(new JLabel("Nombre: "));
@@ -56,16 +76,10 @@ public class AthleticRaceInterface{
         corredoresPanel.setLayout(new BoxLayout(corredoresPanel, BoxLayout.Y_AXIS));
         corredoresPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JLabel corredoresLabel = new JLabel("Corredores registrados");
-        corredoresLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        corredoresLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel corredoresLabel = label("Corredores registrados");
 
         // Área de texto para mostrar participantes
-        JTextArea participantes = new JTextArea(10, 30);
-        participantes.setEditable(false);
-        participantes.setFont(new Font("Arial", Font.PLAIN, 14));
-        participantes.setLineWrap(true);
-        participantes.setWrapStyleWord(true);
+        JTextArea participantes = textArea();
 
         // Scroll para el área de participantes
         JScrollPane scroll = new JScrollPane(participantes);
@@ -77,17 +91,9 @@ public class AthleticRaceInterface{
         corredoresPanel.add(scroll);
 
         // Configuración de botones de control
-        JButton initButton = new JButton("Iniciar");
-        initButton.setFont(new Font("Arial", Font.PLAIN, 14));
-        initButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        JButton rebootButton = new JButton("Reiniciar");
-        rebootButton.setFont(new Font("Arial", Font.PLAIN, 14));
-        rebootButton.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        JButton finishButton = new JButton("Terminar");
-        finishButton.setFont(new Font("Arial", Font.PLAIN, 14));
-        finishButton.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JButton initButton = button("Iniciar");
+        JButton rebootButton = button("Reiniciar");
+        JButton finishButton = button("Terminar");
 
 
 // ActionListener para agregar nuevos corredores
@@ -139,9 +145,7 @@ public class AthleticRaceInterface{
         JPanel controlCarrera = new JPanel(new BorderLayout(10, 10));
         controlCarrera.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JLabel controlLabel = new JLabel("Resultados de la carrera");
-        controlLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        controlLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel controlLabel = label("Control de carrera");
 
         // Panel superior para título y botones
         JPanel topPanel = new JPanel(new BorderLayout());
@@ -149,11 +153,7 @@ public class AthleticRaceInterface{
         topPanel.add(buttonPanel, BorderLayout.EAST);
 
         // Área de texto para mostrar resultados
-        JTextArea tableroRunners = new JTextArea(15, 40);
-        tableroRunners.setEditable(false);
-        tableroRunners.setFont(new Font("Arial", Font.PLAIN, 14));
-        tableroRunners.setLineWrap(true);
-        tableroRunners.setWrapStyleWord(true);
+        JTextArea tableroRunners = textArea();
 
         JScrollPane scroll2 = new JScrollPane(tableroRunners);
         scroll2.setPreferredSize(new Dimension(500, 300));
@@ -168,10 +168,6 @@ public class AthleticRaceInterface{
                 once.start();
             }
         };
-
-
-
-
 
         initButton.addActionListener(start);
         // boton de reiniciar
@@ -188,6 +184,4 @@ public class AthleticRaceInterface{
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
-
 }
